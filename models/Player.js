@@ -15,10 +15,6 @@ Player.init({
     },
     age:{
         type: DataTypes.INTEGER,
-        validate:{
-            min:5,
-            max:18
-        }
     },
     jerseyNumber:{
         type: DataTypes.INTEGER
