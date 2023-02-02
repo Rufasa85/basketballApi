@@ -8,6 +8,7 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const Team = require("./models/Team")
 
 // Sets up the Express app to handle data parsing
 // app.use(express.urlencoded({ extended: true }));
@@ -21,7 +22,7 @@ app.get("/",(req,res)=>{
     res.send("we are up and running!")
 })
 
-sequelize.sync().then(function() {
+sequelize.sync({force:true}).then(function() {
     app.listen(PORT, function() {
         console.log('App listening on PORT ' + PORT);
     });
