@@ -7,17 +7,24 @@ Team.init({
     // add properites here, ex:
     name: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        unique:true,
+        validate:{
+            len:[2],
+            isAlphanumeric:true
+        }
     },
     city:{
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
     },
     primaryColor:{
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull:false
     },
     accentColor:{
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull:false
     },
 },{
     sequelize,

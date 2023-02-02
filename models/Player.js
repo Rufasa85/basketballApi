@@ -7,14 +7,17 @@ Player.init({
     // add properites here, ex:
     firstName: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        validate:{
+            isAlpha:true
+        }
     },
     lastName:{
         type: DataTypes.STRING,
         allowNull:false
     },
     age:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER
     },
     jerseyNumber:{
         type: DataTypes.INTEGER
