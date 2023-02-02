@@ -7,13 +7,13 @@ const seed = async () => {
   await sequelize.sync({ force: true });
   const teams = await Team.bulkCreate([
     {
-      name: "St. Andrews",
+      name: "Andrews",
       city: "Newtown",
       primaryColor: "gold",
       accentColor: "blue",
     },
     {
-      name: "State Liners",
+      name: "StateLiners",
       city: "Montague",
       primaryColor: "black",
       accentColor: "red",
@@ -24,7 +24,9 @@ const seed = async () => {
       primaryColor: "Orange",
       accentColor: "Black",
     },
-  ]);
+  ],{
+    validate:true
+  });
   const players = await Player.bulkCreate([
     {
       firstName: "Alex",
@@ -61,7 +63,9 @@ const seed = async () => {
         jerseyNumber: 14,
         position: "C",
     },
-  ]);
+  ],{
+    validate:true
+  });
 
   process.exit(1)
 };
