@@ -14,16 +14,33 @@ Player.init({
     },
     lastName:{
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        validate:{
+            isAlphanumeric:true
+        }
     },
     age:{
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        validate:{
+            min:5,
+            max:18
+        }
     },
     jerseyNumber:{
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        validate:{
+            min:0,
+            max:99
+        }
     },
     position:{
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull:false,
+        validate:{
+            isIn:[["PG","SG","SF","PF","C"]]
+        }
     },
 },{
     sequelize,
