@@ -1,26 +1,29 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Team extends Model {}
+class Player extends Model {}
 
-Team.init({
+Player.init({
     // add properites here, ex:
-    name: {
+    firstName: {
         type: DataTypes.STRING,
         allowNull:false
     },
-    city:{
+    lastName:{
         type: DataTypes.STRING,
         allowNull:false
     },
-    primaryColor:{
-        type: DataTypes.STRING
+    age:{
+        type: DataTypes.INTEGER
     },
-    accentColor:{
+    jerseyNumber:{
+        type: DataTypes.INTEGER
+    },
+    position:{
         type: DataTypes.STRING
     },
 },{
     sequelize,
 });
 
-module.exports=Team
+module.exports=Player

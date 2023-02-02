@@ -8,21 +8,21 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const Team = require("./models/Team")
+const {Team,Players} = require("./models");
 
 // Sets up the Express app to handle data parsing
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Static directory
 // app.use(express.static('public'));
 
+const allRoutes = require("./controllers");
 
-app.get("/",(req,res)=>{
-    res.send("we are up and running!")
-})
+app.use(allRoutes);
 
-sequelize.sync({force:true}).then(function() {
+
+sequelize.sync({force:false}).then(function() {
     app.listen(PORT, function() {
         console.log('App listening on PORT ' + PORT);
     });
