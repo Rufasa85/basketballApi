@@ -42,7 +42,8 @@ router.post("/",(req,res)=>{
         lastName:req.body.lastName,
         age:req.body.age,
         jerseyNumber:req.body.jerseyNumber,
-        position:req.body.position
+        position:req.body.position,
+       TeamId:req.body.TeamId
     }).then(data=>{
         res.status(201).json(data)
     }).catch(err=>{
@@ -60,7 +61,8 @@ router.put("/:id",(req,res)=>{
         lastName:req.body.lastName,
         age:req.body.age,
         jerseyNumber:req.body.jerseyNumber,
-        position:req.body.position
+        position:req.body.position,
+        team_id:req.body.TeamId
     },{
         where:{
             id:req.params.id

@@ -44,6 +44,7 @@ Player.init({
     },
 },{
     sequelize,
+    underscored:true
 });
 
 module.exports=Player
