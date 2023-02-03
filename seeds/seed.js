@@ -1,7 +1,7 @@
 require("dotenv").config();
 const sequelize = require("../config/connection.js");
-const Player = require("../models/Player");
-const Team = require("../models/Team");
+const {Player,User,Team} = require("../models");
+
 
 const seed = async () => {
   await sequelize.sync({ force: true });
@@ -66,7 +66,19 @@ const seed = async () => {
   ],{
     validate:true
   });
-
+  const users = await User.bulkCreate([
+    {
+      email:"joe@joe.joe",
+      password:"password"
+    },
+    {
+      email:"Andy@joe.joe",
+      password:"password1"
+    }
+  ],{
+    validate:true,
+    individualHooks:true
+  })
   process.exit(1)
 };
 
