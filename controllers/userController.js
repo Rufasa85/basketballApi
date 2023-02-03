@@ -55,12 +55,12 @@ router.post("/login",(req,res)=>{
         }
     }).then(userData=>{
         if(!userData){
-            return res.status(404).json({msg:"no such user!"})
+            return res.status(401).json({msg:"incorecct username or password"})
         } else {
             if(bcrypt.compareSync(req.body.password,userData.password)){
                 return res.json(userData)
             } else {
-                return res.status(401).json({msg:"wrong password"})
+                return res.status(401).json({msg:"incorecct username or password"})
             }
         }
     })

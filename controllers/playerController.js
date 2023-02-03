@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Player} = require('../models');
+const {Player,Team} = require('../models');
 
 router.get("/",(req,res)=>{
     Player.findAll().then(data=>{
@@ -15,7 +15,12 @@ router.get("/",(req,res)=>{
 })
 
 router.get("/:id",(req,res)=>{
-    Player.findByPk(req.params.id).then(data=>{
+    Player.findByPk(req.params.id,{
+        include:[{
+            model:Team,
+            include:[Player]
+        }]
+    }).then(data=>{
         if(data){
            return  res.json(data);
         } else {

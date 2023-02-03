@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Team} = require('../models');
+const {Team, Player} = require('../models');
 
 router.get("/",async (req,res)=>{
     try {
@@ -17,7 +17,9 @@ router.get("/",async (req,res)=>{
 
 router.get("/:id",async (req,res)=>{
     try{
-        const oneTeam = await Team.findByPk(req.params.id);
+        const oneTeam = await Team.findByPk(req.params.id,{
+            include:[Player]
+        });
         if(oneTeam) {
            return res.json(oneTeam)
         } else {

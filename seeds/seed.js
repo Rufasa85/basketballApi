@@ -34,6 +34,7 @@ const seed = async () => {
       age: 11,
       jerseyNumber: 11,
       position: "PG",
+      TeamId:1
     },
     {
         firstName: "Henry",
@@ -41,6 +42,7 @@ const seed = async () => {
         age: 12,
         jerseyNumber: 10,
         position: "SG",
+        TeamId:1
     },
     {
         firstName: "Kevin",
@@ -48,6 +50,7 @@ const seed = async () => {
         age: 9,
         jerseyNumber: 35,
         position: "SF",
+        TeamId:2
     },
     {
       firstName: "Joe",
@@ -55,6 +58,7 @@ const seed = async () => {
       age: 13,
       jerseyNumber: 13,
       position: "PF",
+      TeamId:1
     },
     {
         firstName: "Kai",
@@ -62,6 +66,7 @@ const seed = async () => {
         age: 12,
         jerseyNumber: 14,
         position: "C",
+        TeamId:1
     },
   ],{
     validate:true
